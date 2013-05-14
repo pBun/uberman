@@ -1,0 +1,91 @@
+$spriteWidth:60px;
+$spriteHeight:60px;
+
+@mixin animation($params) { 
+    -webkit-animation:$params;
+    -moz-animation:$params;
+    -ms-animation:$params;
+    animation:$params;
+}
+@mixin keyframes($name) { 
+    @-webkit-keyframes $name { @content }
+    @-moz-keyframes    $name { @content }
+    @-ms-keyframes     $name { @content }
+    @keyframes         $name { @content }
+}
+@mixin anim($selector, $animName, $steps, $animNbr, $animParams){
+    #{$selector} { 
+        @content;
+        @include animation($animName steps($steps) $animParams); 
+    }
+    @include keyframes($animName) {
+        from {
+            background-position:0px (-$spriteHeight * ($animNbr - 1));
+        }
+        to {
+            background-position:-($spriteWidth * $steps) (-$spriteHeight * ($animNbr - 1));
+        }
+    }
+}
+
+body {
+    font-family: 'Droid Sans';
+    background: #f0f0f0;
+}
+.main-wrapper {
+    width: 800px;
+}
+.uber-wrapper {
+    width: 100%;
+    height: 223px;
+    border: 1px solid #000;
+    position: relative;
+    margin: 0 auto;
+    background: url('../images/map.png');
+    overflow: hidden;
+}
+
+.uberman {
+    height: $spriteWidth;
+    width: $spriteHeight;
+    background: url("../images/uberman-sprites.png") no-repeat;
+    position: absolute;
+    top: -$spriteHeight;
+}
+.uberman.right {
+    background-position: 0px (-$spriteHeight);
+}
+.uberman.left {
+    background-position: 0px (-2*$spriteHeight);
+}
+.bullet {
+    position: absolute;
+    height: $spriteWidth;
+    width: $spriteHeight;
+    background: url("../images/uberman-sprites.png") no-repeat;
+}
+.bullet.right {
+    background-position: (-6*$spriteHeight) 0px;
+}
+.bullet.left {
+    background-position: (-5*$spriteHeight) 0px;
+}
+
+// warp animation
+@include anim($selector:".warp", $animName:warp, $steps:5, $animNbr:1, $animParams:1.0s infinite);
+
+// running animations
+@include anim($selector:".run.right", $animName:runRight, $steps:10, $animNbr:4, $animParams:0.8s infinite);
+@include anim($selector:".run.left", $animName:runLeft, $steps:10, $animNbr:5, $animParams:0.8s infinite);
+
+// idle animations
+@include anim($selector:".idle.right", $animName:idleRight, $steps:4, $animNbr:2, $animParams:2.0s infinite);
+@include anim($selector:".idle.left", $animName:idleLeft, $steps:4, $animNbr:3, $animParams:2.0s infinite);
+
+// blaster animations
+@include anim($selector:".blaster.right", $animName:blasterRight, $steps:6, $animNbr:6, $animParams:0.5s infinite);
+@include anim($selector:".blaster.left", $animName:blasterLeft, $steps:6, $animNbr:7, $animParams:0.5s infinite);
+
+// blaster while running animations
+@include anim($selector:".blaster.run.right", $animName:blasterRunRight, $steps:10, $animNbr:8, $animParams:0.8s infinite);
+@include anim($selector:".blaster.run.left", $animName:blasterRunLeft, $steps:10, $animNbr:9, $animParams:0.8s infinite);

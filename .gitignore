@@ -4,3 +4,5 @@ dist
 .sass-cache
 app/components
 /app/images/Thumbs.db
+/app/styles/*.css.map
+/app/styles/*.css

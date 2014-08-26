@@ -8,10 +8,10 @@ $spriteHeight:60px;
     animation:$params;
 }
 @mixin keyframes($name) { 
-    @-webkit-keyframes $name { @content }
-    @-moz-keyframes    $name { @content }
-    @-ms-keyframes     $name { @content }
-    @keyframes         $name { @content }
+    @-webkit-keyframes #{$name} { @content }
+    @-moz-keyframes    #{$name} { @content }
+    @-ms-keyframes     #{$name} { @content }
+  @keyframes         #{$name} { @content }
 }
 @mixin anim($selector, $animName, $steps, $animNbr, $animParams){
     #{$selector} { 
@@ -41,14 +41,14 @@ body {
     border: 1px solid #000;
     position: relative;
     margin: 0 auto;
-    background: url('../images/map.png');
+    background: url('https://raw.githubusercontent.com/pBun/uberman/master/app/images/map.png');
     overflow: hidden;
 }
 
 .uberman {
     height: $spriteWidth;
     width: $spriteHeight;
-    background: url("../images/uberman-sprites.png") no-repeat;
+    background: url("https://raw.githubusercontent.com/pBun/uberman/master/app/images/uberman-sprites.png") no-repeat;
     position: absolute;
     top: -$spriteHeight;
 }
@@ -62,7 +62,7 @@ body {
     position: absolute;
     height: $spriteWidth;
     width: $spriteHeight;
-    background: url("../images/uberman-sprites.png") no-repeat;
+    background: url("https://raw.githubusercontent.com/pBun/uberman/master/app/images/uberman-sprites.png") no-repeat;
 }
 .bullet.right {
     background-position: (-6*$spriteHeight) 0px;

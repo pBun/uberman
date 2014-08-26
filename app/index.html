@@ -20,26 +20,21 @@
         <h1>Uberman</h1>
         <h2>Features:</h2>
         <ul>
-            <li>Move with the arrow keys or 'a' and 'd'</li>
-            <li>Shoot with 'space'</li>
-            <li>Idle Animation</li>
-            <li>Responsive level width</li>
+          <li>Move with the arrow keys, 'a'/'d', or use the 'Left'/'Right' controls below</li>
+          <li>Shoot with 'space' or by using the 'Shoot' control below</li>
+          <li>Warp-in Animation</li>
+          <li>Idle Animation</li>
+          <li>Responsive level width</li>
         </ul>
         <div class="uber-wrapper">
-            <div class='uberman'></div>
+          <div class='uberman'></div>
         </div>
-
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
+        <div class="controls">
+          <a href="#" class="left">Left</a>
+          <a href="#" class="right">Right</a>
+          <a href="#" class="shoot">Shoot</a>
+          <a href="#" class="reset">Reset</a>
+        </div>
 
         <!-- build:js scripts/main.js -->
         <script src="components/jquery/jquery.js"></script>
